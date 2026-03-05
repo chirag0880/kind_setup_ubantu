@@ -69,6 +69,68 @@ chmod +x ./kubectl
 sudo mv ./kubectl /usr/local/bin/kubectl
 
 
+Create a Kind Cluster
+kind create cluster --name dev-cluster
+Verify
+kubectl cluster-info
+kubectl get nodes
+
+Create a Sample Application
+nano deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-nginx
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: demo-nginx
+  template:
+    metadata:
+      labels:
+        app: demo-nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.25
+        ports:
+        - containerPort: 80
+
+kubectl apply -f deployment.yaml
+kubectl get pods
+
+Expose the Application
+nano service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: demo-nginx-service
+spec:
+  selector:
+    app: demo-nginx
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: NodePort
+
+  Apply:
+
+  kubectl apply -f service.yaml
+
+  Verify:
+  kubectl get svc
+
+  Access the App
+
+  kubectl get svc demo-nginx-service
+
+  Then open:
+  Then open:
+        
+
+
 
 
 
