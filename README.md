@@ -126,13 +126,16 @@ spec:
 
   kubectl get svc demo-nginx-service
 
-  Then open:
-  Then open:
-        
+Bind to All Network Interfaces
+
+nohup kubectl port-forward --address 0.0.0.0 service/demo-nginx-service 8080:80 > portforward.log 2>&1 &  (run in backgroung)
+
+ps aux | grep kubectl for procces check 
 
 
-
-
-
+also we can use scree to run in background 
+screen -S portforward
+kubectl port-forward --address 0.0.0.0 service/demo-nginx-service 8080:80
+Ctrl + A + D
 
 
