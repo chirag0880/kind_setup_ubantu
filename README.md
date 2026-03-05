@@ -139,3 +139,5 @@ kubectl port-forward --address 0.0.0.0 service/demo-nginx-service 8080:80
 Ctrl + A + D
 
 
+kubectl config get-clusters  # to get cluster inforamation
+
