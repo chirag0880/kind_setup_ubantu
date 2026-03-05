@@ -17,6 +17,8 @@ docker --version
 kubectl version --client
 kind --version
 
+
+For Docker
 You already installed kind ✔️, but Docker and kubectl are missing, which are required for running a Kubernetes cluster. Let's install everything step-by-step. 🔨🤖🔧
 
 Install Required Packages
@@ -58,3 +60,17 @@ Then reload your session:
 newgrp docker
 Test:
 docker run hello-world
+
+
+For Install kubectl
+
+curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl"
+chmod +x ./kubectl
+sudo mv ./kubectl /usr/local/bin/kubectl
+
+
+
+
+
+
+
