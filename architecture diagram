@@ -34,5 +34,5 @@
                         ┌────────────────────────┐
                         │   KIND Node Container  │
                         │ (Docker container)     │
-                        │ dev-cluster-control... │
+                        │ dev-cluster-control.... │
                         └────────────────────────┘
